@@ -10,10 +10,6 @@ const Header = () => {
 	const dispatch = useDispatch();
 	const [searchInput, setSearchInput] = useState("");
 	const [searchWord, setSearchWord] = useState("");
-	// const queryClient = useQueryClient();
-	// useEffect(() => {
-	// 	console.log("searchword change", searchWord);
-	// }, [searchWord])
 
 	const onChangeSearch = e => {
 			console.log("searchword changing");

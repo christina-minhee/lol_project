@@ -1,7 +1,4 @@
 import "./index.css";
-import {useState, useEffect} from "react";
-import {useGetPlayerResult} from "../../../../../query/player";
-import {useSelector} from "react-redux";
 
 const Profile = ({summonerData}) => {
 

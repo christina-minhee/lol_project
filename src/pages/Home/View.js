@@ -1,8 +1,9 @@
-import styles from "index.module.css";
+import styles from "./index.module.css";
+import Header from "./components/Header";
 
 const View =() => {
   return (
-    <h1>hello world!</h1>
+    <Header/>
   );
 }
 

@@ -1,34 +1,29 @@
 .header {
-  width: 1440px;
+  width: 100vw;
   height: 97px;
-  margin: 0 0 15px;
   background-color: #1ea1f7;
-  padding: 53px 261px 12px 919px;
+  padding: 53px calc((100% - 1000px) / 2) 12px;
+  min-width: 1000px;
+  display: flex;
+  justify-content: right;
 }
 
-.searchbar {
+.input-group {
   width: 260px;
   height: 32px;
-  padding: none;
-  padding-bottom: none;
 }
 
 .form-control {
   border-radius: 2px;
-  height: 100%;
-  padding: 9px 12px 8px 14px;
-  line-height: normal;
   font-size: 12px;
 }
 
 .btn {
-  height: 100%;
+  border-radius: 2px;
   border: none;
-  padding: none;
   background-color: #fff;
   border-radius: 2px;
   font-size: 13px;
-  line-height: normal;
   font-weight: 700;
   color: #1ea1f7;
 }

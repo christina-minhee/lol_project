@@ -1,7 +1,5 @@
 import "./index.css";
-import {useState, useEffect, useCallback} from "react";
-// import {useQueryClient}from "@tanstack/react-query";
-import { useGetPlayerResult } from "../../../../query/player";
+import {useState} from "react";
 import {useDispatch} from "react-redux";
 import { updateSummoner } from "../../../../store";
 

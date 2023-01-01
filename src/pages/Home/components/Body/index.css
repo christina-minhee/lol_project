@@ -8,12 +8,6 @@
     justify-content: flex-start;
 }
 
-/* .body_content {
-    width: 1000px;
-    v    display: flex;
-    flex-direction: column;
-} */
-
 .summoner_board {
     padding: 10px calc((100% - 1000px) / 2) 0;
     min-width: 1000px;

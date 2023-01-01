@@ -1,0 +1,24 @@
+.progress {
+  position: relative;
+  width: 123px;
+  height: 24px;
+  background-color: #ee5a52;
+}
+
+.progress_win,
+.progress_loss {
+  position: absolute;
+  padding: 6px 0 4px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+.progress_win {
+  left: 4px;
+}
+
+.progress_loss {
+  right: 4px;
+}

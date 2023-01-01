@@ -2,91 +2,127 @@
   background-color: #ededed
   border: 1px solid #cdd2d2
 
-  .tabs
+.tabs
+  width: 100%
+  height: 44px
+  display: flex
+  flex-direction: row
+
+.tab
+  width: 50%
+  text-align: center
+  line-height: 44px
+  font-size: 12px
+  font-weight: bold
+  color: #5e5e5e
+  cursor: pointer
+  &:first-child
+    border-right: 1px solid #cdd2d2
+
+.inactive
+  font-weight: normal
+  color: #879292
+  background-color: #f2f2f2
+  border-bottom: 1px solid #cdd2d2
+
+.contents
+.champion_item
+  height: 53px
+  border-bottom: 1px solid #cdd2d2
+  padding: 4px 15px
+  &:last-child
+    border-bottom: none
+
+.champion_item_content
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  p
+    font-size: 13px
+    font-weight: 700
+    font-family: AppleSDGothicNeo, sans-serif
+    margin-bottom: 3px
+    color: #5e5e5e
+  span
+    font-size: 11px
+    color: #879292
+
+.champion_img_container
+  width: 45px
+  height: 45px
+  border-radius: 100%
+  overflow: hidden
+  img 
     width: 100%
-    height: 44px
-    display: flex
-    flex-direction: row
+    height: 100%
 
-    .tab
-      width: 50%
-      text-align: center
-      line-height: 44px
-      font-size: 12px
-      font-weight: bold
-      color: #5e5e5e
-      cursor: pointer
-      &:first-child
-        border-right: 1px solid #cdd2d2
+.champion_name_section,
+.champion_rating,
+.champion_winrate
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: left
+  text-align: left
 
-    .inactive
-      font-weight: normal
-      color: #879292
-      background-color: #f2f2f2
-      border-bottom: 1px solid #cdd2d2
+.champion_name_section
+  width: 66px
 
-  .contents
-    .champion_item
-      height: 53px
-      border-bottom: 1px solid #cdd2d2
-      padding: 4px 15px
-      &:last-child
-        border-bottom: none
+.champion_rating
+  text-align: center
+  width: 80px
 
-      .champion_item_content
-        display: flex
-        flex-direction: row
-        align-items: center
-        justify-content: space-between
-        p
-          font-size: 13px
-          font-weight: 700
-          margin-bottom: 3px
-          color: #5e5e5e
-        span
-          font-size: 11px
-          color: #879292
+.champion_winrate
+  text-align: center  
+  width: 37px
 
-        .champion_img_container
-          width: 45px
-          height: 45px
-          border-radius: 100%
-          overflow: hidden
-          img 
-            width: 100%
-            height: 100%
+.championWin_content
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  p
+    font-size: 13px
+    font-family: AppleSDGothicNeo, sans-serif
+    font-weight: bold
+    color: #5e5e5e
 
-        .champion_name_section,
-        .champion_rating,
-        .champion_winrate
-          display: flex
-          flex-direction: column
-          justify-content: center
-          align-items: left
-          text-align: left
+.championWin_item
+  height: 48px
+  border-bottom: 1px solid #cdd2d2
+  padding: 8px 8px 8px 15px
+  &:last-child
+    border-bottom: none
 
-        .champion_name_section
-          width: 66px
+  .championWin_name_section
+    font-size: 13px
+    font-weight: bold
+    width: 66px
+    color: #5e5e5e
+    text-align: left
 
-        .champion_rating
-          text-align: center
-          width: 80px
+  .championWin_winrate
+    font-size: 13px
+    color: #879292
+    font-weight: bold
 
-        .champion_winrate
-          text-align: center  
-          width: 37px
-        // .rate
-        //   color: #5e5e5e
-        .high_winrate
-          color:  #c6443e
-        .orange
-          color: #e19205
-        .blue
-           color: #1f8ecd
-        .green
-          color: #2daf7f
-        .regular
-          color: #879292
+  .championWin_img_container
+    width: 32px
+    height: 32px
+    border-radius: 100%
+    overflow: hidden
+    img 
+      width: 100%
+      height: 100%
 
-
-
+.high_winrate
+  color: #c6443e !important
+.orange
+  color: #e19205 !important
+.blue
+  color: #1f8ecd !important
+.green
+  color: #2daf7f !important
+.regular
+  color: #879292 !important

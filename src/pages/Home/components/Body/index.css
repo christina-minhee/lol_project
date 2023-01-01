@@ -24,22 +24,6 @@
   width: 690px;
 }
 
-.rank_card {
-  margin-bottom: 8px;
-  border-radius: 2px;
-  border: solid 1px #cdd2d2;
-  background-color: #f2f2f2;
-  margin-bottom: 8px;
-}
-
-.solo_rank_content {
-  height: 124px;
-}
-
-.free_rank_content {
-  height: 98px;
-}
-
 .overview_table {
   margin-bottom: 16px;
   height: 194px;

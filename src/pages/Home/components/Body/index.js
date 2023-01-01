@@ -1,6 +1,7 @@
 import "./index.css";
 import Profile from "./Profile";
 import WinTable from "./WinTable";
+import LeagueCards from "./LeagueCards";
 import { useGetPlayerResult, useGetSummonerWinRate } from "../../../../query";
 import { useSelector } from "react-redux";
 
@@ -19,12 +20,7 @@ const Body = () => {
           <div className="summoner_board">
             {/* TO DO rank section */}
             <div className="left_section">
-              <div className="rank_card">
-                <div className="solo_rank_content"></div>
-              </div>
-              <div className="rank_card">
-                <div className="free_rank_content"></div>
-              </div>
+              <LeagueCards summonerData={summonerData} />
               <WinTable summonerWinRate={summonerWinRate} />
             </div>
             <div className="right_section">

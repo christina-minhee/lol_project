@@ -1,14 +1,14 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    summonerName: ""
+  summonerName: "",
 };
 
 export const summonerSlice = createSlice({
   name: "summoner",
   initialState,
   reducers: {
-    updateSummoner: (state,action) => {
+    updateSummoner: (state, action) => {
       return {
         ...state,
         summonerName: action.payload,
@@ -17,5 +17,5 @@ export const summonerSlice = createSlice({
   },
 });
 
-export const {updateSummoner} = summonerSlice.actions;
+export const { updateSummoner } = summonerSlice.actions;
 export default summonerSlice.reducer;

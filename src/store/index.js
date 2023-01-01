@@ -1,19 +1,12 @@
-import summonerReducer, {
-    updateSummoner
-} from "./summonerSlice";
-import {configureStore} from "@reduxjs/toolkit";
-
+import summonerReducer, { updateSummoner } from "./summonerSlice";
+import { configureStore } from "@reduxjs/toolkit";
 
 export default configureStore({
-    reducer: {
-      summoner: summonerReducer,
-    }
+  reducer: {
+    summoner: summonerReducer,
+  },
 });
-  
-  export {
-   summonerReducer
-  };
 
-  export {
-    updateSummoner
-  };
+export { summonerReducer };
+
+export { updateSummoner };

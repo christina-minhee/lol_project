@@ -4,11 +4,11 @@ import Body from "./components/Body";
 
 const View = () => {
   return (
-		<>
-			<Header/>
-			<Body />
-		</>
+    <>
+      <Header />
+      <Body />
+    </>
   );
-}
+};
 
 export default View;

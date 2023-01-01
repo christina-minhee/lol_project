@@ -1,21 +1,14 @@
 import styles from "./index.module.sass";
 
 const Profile = ({ summonerData }) => {
+  const { previousTiers } = summonerData;
   return (
     <div className={styles.container}>
       <div className={styles.medals}>
-        <div className={styles.medal}>
-          <span>S3&nbsp;</span>Bronze
-        </div>
-        <div className={styles.medal}>
-          <span>S3&nbsp;</span>Bronze
-        </div>
-        <div className={styles.medal}>
-          <span>S3&nbsp;</span>Bronze
-        </div>
-        <div className={styles.medal}>
-          <span>S3&nbsp;</span>Bronze
-        </div>
+        {previousTiers &&
+          previousTiers.map((tier, index) => (
+            <PrevTier key={index} tier={tier} />
+          ))}
       </div>
       <div className={styles.content}>
         <img
@@ -35,6 +28,15 @@ const Profile = ({ summonerData }) => {
           </span>
         </div>
       </div>
+    </div>
+  );
+};
+
+const PrevTier = ({ tier }) => {
+  return (
+    <div className={styles.medal}>
+      <span>S{tier.season}&nbsp;</span>
+      {tier.tier}
     </div>
   );
 };

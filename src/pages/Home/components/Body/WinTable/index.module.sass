@@ -1,0 +1,92 @@
+.win_table
+  background-color: #ededed
+  border: 1px solid #cdd2d2
+
+  .tabs
+    width: 100%
+    height: 44px
+    display: flex
+    flex-direction: row
+
+    .tab
+      width: 50%
+      text-align: center
+      line-height: 44px
+      font-size: 12px
+      font-weight: bold
+      color: #5e5e5e
+      cursor: pointer
+      &:first-child
+        border-right: 1px solid #cdd2d2
+
+    .inactive
+      font-weight: normal
+      color: #879292
+      background-color: #f2f2f2
+      border-bottom: 1px solid #cdd2d2
+
+  .contents
+    .champion_item
+      height: 53px
+      border-bottom: 1px solid #cdd2d2
+      padding: 4px 15px
+      &:last-child
+        border-bottom: none
+
+      .champion_item_content
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        p
+          font-size: 13px
+          font-weight: 700
+          margin-bottom: 3px
+          color: #5e5e5e
+        span
+          font-size: 11px
+          color: #879292
+
+        .champion_img_container
+          width: 45px
+          height: 45px
+          border-radius: 100%
+          overflow: hidden
+          img 
+            width: 100%
+            height: 100%
+
+        .champion_name_section,
+        .champion_rating,
+        .champion_winrate
+          display: flex
+          flex-direction: column
+          justify-content: center
+          align-items: left
+          text-align: left
+
+        .champion_name_section
+          width: 66px
+
+        .champion_rating
+          text-align: center
+          width: 75px
+
+        .champion_winrate
+          text-align: center  
+          width: 40px
+        // .rate
+        //   color: #5e5e5e
+        .high_winrate
+          color:  #c6443e
+        .orange
+          color: #e19205
+        .blue
+           color: #1f8ecd
+        .green
+          color: #2daf7f
+        .regular
+          color: #879292
+
+
+

@@ -2,6 +2,7 @@ import "./index.css";
 import Profile from "./Profile";
 import WinTable from "./WinTable";
 import LeagueCards from "./LeagueCards";
+import MatchOverview from "./MatchOverview";
 import { useGetPlayerResult, useGetSummonerWinRate } from "../../../../query";
 import { useSelector } from "react-redux";
 
@@ -24,7 +25,7 @@ const Body = () => {
               <WinTable summonerWinRate={summonerWinRate} />
             </div>
             <div className="right_section">
-              <div className="overview_table"></div>
+              <MatchOverview />
               <div className="match_item"></div>
             </div>
           </div>

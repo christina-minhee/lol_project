@@ -1,0 +1,162 @@
+
+.overview_table 
+  margin-bottom: 16px
+  height: 194px
+  border-radius: 2px
+  border: solid 1px #cdd2d2
+  background-color: #ededed
+  box-sizing: border-box
+  font-family: Helvetica, san-serif
+
+.tab_row
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  height: 36px
+  border-bottom: solid 1px #cdd2d2
+  background-color: #f2f2f2
+  color: #555
+  p
+    font-family: NanumBarunGothicOTF, sans-serif
+    font-size: 12px
+    margin-right: 24px
+    cursor: pointer
+
+    &:first-child
+      margin-left: 16px
+
+.selected
+  color: #1f8ecd
+  font-weight: bold
+  text-decoration: underline #1f8ecd
+  text-decoration-thickness: 2px
+  text-underline-offset: 12px
+
+.table_body
+  display: flex
+  flex-direction: row
+  width: 100%
+  height: calc(100% - 36px)
+
+.table_section
+  display: flex
+  border-right: 1px solid #cdd2d2
+  padding: 16px
+  &:last-child
+    border-right: none
+
+.progress_left
+  padding-left: 8px
+  p
+    font-size: 12px
+    color: #666
+    text-align: center
+    margin-bottom: 14px
+
+.progressbar_container
+  width: 90px
+  height: 90px
+  position: relative
+
+  .percentage_text
+    position: absolute
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    top: 0
+    left: 0
+    color:#555555
+    font-size: 14px
+    font-weight: bold
+
+.progress_right
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 149px
+
+  .kda
+    font-size: 11px
+    margin-bottom: 6px
+  
+  .rating
+    font-size: 16px
+
+.champion_list
+  .champion_item
+    display: flex
+    flex-direction: row
+    margin-bottom: 12px
+    &:last-child
+      margin-bottom: 0
+
+    .champion_img_container
+      width: 34px
+      height: 34px
+      margin-right: 8px
+      img
+        width: 100%
+        height: 100%
+    .champion_details
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: center
+      width: 152px
+      font-size: 11px
+      color: #333333
+      .champion_name
+        font-size: 14px
+        margin-bottom: 3px
+      // .champion_winrate
+      .champion_no_info
+        color: #999
+
+.preferred_pos
+  .preferred_title
+    font-size: 12px
+    color: #666666
+    text-align: left
+    margin-bottom: 22px
+  .pos_list
+    display: flex
+    flex-direction: column
+    .pos_item
+      display: flex
+      flex-direction: row
+      margin-bottom: 12px
+      &:last-child
+        margin-bottom: 0
+
+      .pos_img_container
+        width: 28px
+        height: 28px
+        margin-right: 8px
+        img
+          width: 100%
+          height: 100%
+
+      .pos_details
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: center
+        text-align: left
+        // width: 152px
+        font-size: 11px
+        color: #333333
+        .pos_name
+          font-size: 14px
+          margin-bottom: 3px
+        // .champion_winrate
+
+
+
+      
+      
+
+

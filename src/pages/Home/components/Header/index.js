@@ -12,6 +12,12 @@ const Header = () => {
     setSearchInput(e.target.value);
   };
 
+  const handleOnKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onClickSearch();
+    }
+  };
+
   const onClickSearch = (e) => {
     dispatch(updateSummoner(searchInput));
   };
@@ -24,6 +30,7 @@ const Header = () => {
           className="form-control"
           value={searchInput}
           onChange={onChangeSearch}
+          onKeyPress={handleOnKeyPress}
           placeholder="소환사명,챔피언…"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"

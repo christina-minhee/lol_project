@@ -8,7 +8,6 @@ const Header = () => {
   const [searchInput, setSearchInput] = useState("");
 
   const onChangeSearch = (e) => {
-    console.log("searchword changing");
     setSearchInput(e.target.value);
   };
 

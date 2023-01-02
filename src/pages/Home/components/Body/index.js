@@ -3,19 +3,29 @@ import Profile from "./Profile";
 import WinTable from "./WinTable";
 import LeagueCards from "./LeagueCards";
 import MatchOverview from "./MatchOverview";
-import { useGetPlayerResult, useGetSummonerWinRate } from "../../../../query";
+import {
+  useGetPlayerResult,
+  useGetSummonerWinRate,
+  useGetMatches,
+} from "../../../../query";
 import { useSelector } from "react-redux";
 
 const Body = () => {
   const { summonerName } = useSelector((state) => state.summoner);
 
-  const { data: summonerData } = useGetPlayerResult(summonerName);
-  const { data: summonerWinRate } = useGetSummonerWinRate(summonerName);
+  const { isLoading: summonerLoading, data: summonerData } =
+    useGetPlayerResult(summonerName);
+  const { isLoading: winLoading, data: summonerWinRate } =
+    useGetSummonerWinRate(summonerName);
+  const { isLoading: matchesLoading, data: matchesData } =
+    useGetMatches(summonerName);
+
+  // console.log(11, summonerName, summonerData, summonerWinRate, matchesData);
 
   return (
     <div className="body_layout">
       {/* TO DO no summoner case */}
-      {summonerData && (
+      {!summonerLoading && !winLoading && !matchesLoading && (
         <>
           <Profile summonerData={summonerData} />
           <div className="summoner_board">
@@ -25,7 +35,7 @@ const Body = () => {
               <WinTable summonerWinRate={summonerWinRate} />
             </div>
             <div className="right_section">
-              <MatchOverview />
+              <MatchOverview matchesData={matchesData} />
               <div className="match_item"></div>
             </div>
           </div>

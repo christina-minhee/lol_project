@@ -9,6 +9,7 @@ const getPlayerInfo = async (summonerName) => {
   const { data } = await axios.get(
     `https://codingtest.op.gg/api/summoner/${summonerName}`
   );
+
   return data.summoner;
 };
 

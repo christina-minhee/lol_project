@@ -2,6 +2,7 @@ import styles from "./index.module.sass";
 import { useState } from "react";
 import classNames from "classnames/bind";
 import "./index.css";
+import { getRatingColor } from "../../../../../utils/getRatingColor";
 
 const cn = classNames.bind(styles);
 
@@ -124,20 +125,6 @@ const ChampionItem = ({ champion }) => {
       </div>
     </div>
   );
-};
-
-const getRatingColor = (rating) => {
-  let color = "regular";
-
-  if (rating >= 5) {
-    color = "orange";
-  } else if (rating >= 4) {
-    color = "blue";
-  } else if (rating >= 3) {
-    color = "green";
-  }
-
-  return color;
 };
 
 export default WinTable;

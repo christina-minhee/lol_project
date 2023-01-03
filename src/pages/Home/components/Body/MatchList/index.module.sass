@@ -1,0 +1,197 @@
+.match_list
+  display: flex
+  flex-direction: column
+
+
+.match_item
+  display: flex
+  flex-direction: row
+  height: 96px
+  margin-bottom: 8px
+  .match_item_more
+    height: 100%
+    width: 30px
+    border: solid 1px
+
+.lose
+  background-color: #d6b5b2
+  .match_item_container
+    border-color: #c0aba8
+  .match_item_more
+    border-color: #c8817c
+
+.win
+  background-color: #b0ceea
+  .match_item_container
+    border-color: #a1b8cd
+  .match_item_more
+    border-color:#549dc7
+
+.redo
+  background-color: #b6b6b6
+  .match_item_container
+    border-color:#eaeaea
+  .match_item_more
+    border-color:#999999
+
+
+.match_item_container
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  height: 100%
+  width: calc(100% - 30px)
+  border: solid 1px
+  border-right: none
+  padding: 4px
+
+.match_rank_info
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 100%
+  font-size: 11px
+  font-family: AppleSDGothicNeo, sans-serif
+  letter-spacing: -0.42px
+  p
+    margin-bottom: 4px
+
+.champion_info_section
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.champion_icon_container
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  padding-top: 2px
+
+.champion_img_container
+  width: 46px
+  height: 46px
+  border-radius: 100%
+  overflow: hidden
+  margin-right: 6px
+  img
+    width: 100%
+    height: 100%
+
+.champion_spell_gallery,
+.champion_peak_gallery
+  display: grid
+  grid-template-columns: repeat(1, 1fr)
+  grid-template-rows: repeat(2, 1fr)
+  grid-gap: 2px
+
+.spell_img,
+.peak_img,
+.item_img
+  width: 22px
+  height: 22px
+  border-radius: 2px
+
+.peak_img
+  border-radius: 100%
+.spell_img
+  border-radius: 2px
+
+.champion_name
+  text-align: center
+  padding-top: 9px
+  letter-spacing: -0.42px
+  color: #555
+  font-size: 11px
+
+.item_gallery
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  grid-template-rows: repeat(2, 1fr)
+  grid-gap: 2px
+
+
+.lose_empty
+  background-color: #cb9e9a
+
+.win_empty
+  background-color: #7aa5c3
+
+.redo_empty
+  background-color: #979797
+
+.item_container
+  display: flex
+  align-items: center
+  flex-direction: column
+
+.ward
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-top: 7px
+  img
+    width: 16px
+    height: 16px
+    margin-right: 4px
+  span
+    font-size: 11px
+    letter-spacing: -0.42px
+    color: #000
+
+.other_details_section
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+.badge_list
+  display: flex
+  flex-direction: row
+
+.badge
+  padding: 2px 5px 3px
+  border-radius: 9px
+  font-size: 10px
+  letter-spacing: -0.38px
+  color: #fff
+  margin-right: 4px
+  &:last-child
+    margin-right: 0
+
+.multikill_badge
+  border: solid 1px #bf3b36
+  background-color: #ec4f48
+
+.op_badge
+  border: solid 1px #7f3590
+  background-color: #8c51c5
+
+.members_container
+  display: flex
+  flex-direction: row
+.team
+  display: flex
+  flex-direction: column
+.member
+  display: flex
+  flex-direction: row
+  
+  img
+    width: 16px
+    height: 16px
+    margin: 0 3px 0 0
+    border: solid 1px #0d0819
+  
+  p
+    width: 52px
+    font-size: 11px
+    letter-spacing: -0.42px
+    color: #555
+    white-space: nowrap
+    text-align: left
+    overflow: hidden
+    text-overflow: ellipsis

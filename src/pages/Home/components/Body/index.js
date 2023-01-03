@@ -3,6 +3,7 @@ import Profile from "./Profile";
 import WinTable from "./WinTable";
 import LeagueCards from "./LeagueCards";
 import MatchOverview from "./MatchOverview";
+import MatchList from "./MatchList";
 import {
   useGetPlayerResult,
   useGetSummonerWinRate,
@@ -20,8 +21,6 @@ const Body = () => {
   const { isLoading: matchesLoading, data: matchesData } =
     useGetMatches(summonerName);
 
-  // console.log(11, summonerName, summonerData, summonerWinRate, matchesData);
-
   return (
     <div className="body_layout">
       {/* TO DO no summoner case */}
@@ -36,7 +35,10 @@ const Body = () => {
             </div>
             <div className="right_section">
               <MatchOverview matchesData={matchesData} />
-              <div className="match_item"></div>
+              <MatchList
+                summonerName={summonerName}
+                matchesData={matchesData}
+              />
             </div>
           </div>
         </>

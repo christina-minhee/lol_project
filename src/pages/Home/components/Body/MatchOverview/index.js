@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import {
+  findSummary,
   getRating,
+  getRatingColor,
   getWinRate,
   getPercentageByTotal,
 } from "../../../../../utils";
@@ -15,7 +17,6 @@ import MidIcon from "../../../../../images/pos_midIcon.png";
 import SupIcon from "../../../../../images/pos_supIcon.png";
 import TopIcon from "../../../../../images/pos_topIcon.png";
 import ADCIcon from "../../../../../images/pos_adcIcon.png";
-import { getRatingColor } from "../../../../../utils/getRatingColor";
 
 const cn = classNames.bind(styles);
 
@@ -23,7 +24,6 @@ const MatchOverview = ({ summonerName, matchesData }) => {
   const tabList = ["전체", "솔로게임", "자유랭크"];
   const [selectedTab, setSelectedTab] = useState(tabList[0]);
   const [selectedMatchList, setSelectedMatchList] = useState(matchesData.games);
-  console.log("matchData", matchesData);
 
   const soloMatch = matchesData.games.filter(
     (game) => game.gameType === "솔랭"
@@ -31,6 +31,11 @@ const MatchOverview = ({ summonerName, matchesData }) => {
   const freeMatch = matchesData.games.filter(
     (game) => game.gameType === "자유 5:5 랭크"
   );
+
+  const allSummary = findSummary(matchesData.games);
+  const soloSummary = findSummary(soloMatch);
+  const freeSummary = findSummary(freeMatch);
+
   useEffect(() => {
     if (selectedTab === "솔로게임") {
       setSelectedMatchList(soloMatch);
@@ -63,7 +68,13 @@ const MatchOverview = ({ summonerName, matchesData }) => {
           {matchesData && (
             <>
               <div className={cn("table_section")}>
-                <GraphSection summary={matchesData.summary} />
+                <GraphSection
+                  summary={
+                    (selectedTab === "전체" && allSummary) ||
+                    (selectedTab === "솔로게임" && soloSummary) ||
+                    (selectedTab === "자유랭크" && freeSummary)
+                  }
+                />
               </div>
               <div className={cn("table_section")}>
                 <ChampionList champions={matchesData.champions} />

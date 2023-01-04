@@ -2,14 +2,18 @@ import styles from "./index.module.sass";
 import { useState } from "react";
 import classNames from "classnames/bind";
 import "./index.css";
-import { getRatingColor } from "../../../../../utils/getRatingColor";
+import { getRatingColor, mergeSortByTotalGames } from "../../../../../utils";
 
 const cn = classNames.bind(styles);
 
 const WinTable = ({ summonerWinRate }) => {
   const [selected, setSelected] = useState("champion");
-  const summonerChampionWinList = summonerWinRate.champions;
-  const summonerRecentWinList = summonerWinRate.recentWinRate;
+  const summonerChampionWinList = mergeSortByTotalGames(
+    summonerWinRate.champions
+  );
+  const summonerRecentWinList = mergeSortByTotalGames(
+    summonerWinRate.recentWinRate
+  );
 
   // TO DO: sort list by Most games
   return (

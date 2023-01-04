@@ -3,7 +3,6 @@ import Profile from "./Profile";
 import WinTable from "./WinTable";
 import LeagueCards from "./LeagueCards";
 import MatchOverview from "./MatchOverview";
-import MatchList from "./MatchList";
 import {
   useGetPlayerResult,
   useGetSummonerWinRate,
@@ -34,11 +33,14 @@ const Body = () => {
               <WinTable summonerWinRate={summonerWinRate} />
             </div>
             <div className="right_section">
-              <MatchOverview matchesData={matchesData} />
-              <MatchList
+              <MatchOverview
                 summonerName={summonerName}
                 matchesData={matchesData}
               />
+              {/* <MatchList
+                summonerName={summonerName}
+                matchesData={matchesData}
+              /> */}
             </div>
           </div>
         </>

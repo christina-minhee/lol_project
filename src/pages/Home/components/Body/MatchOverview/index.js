@@ -8,6 +8,7 @@ import {
   getWinRate,
   getPercentageByTotal,
 } from "../../../../../utils";
+import MatchList from "../MatchList";
 import defaultIcon from "../../../../../images/no_champion.png";
 import JungleIcon from "../../../../../images/pos_jungleIcon.png";
 import MidIcon from "../../../../../images/pos_midIcon.png";
@@ -18,47 +19,67 @@ import { getRatingColor } from "../../../../../utils/getRatingColor";
 
 const cn = classNames.bind(styles);
 
-const MatchOverview = ({ matchesData }) => {
+const MatchOverview = ({ summonerName, matchesData }) => {
   const tabList = ["전체", "솔로게임", "자유랭크"];
   const [selectedTab, setSelectedTab] = useState(tabList[0]);
+  const [selectedMatchList, setSelectedMatchList] = useState(matchesData.games);
   console.log("matchData", matchesData);
+
+  const soloMatch = matchesData.games.filter(
+    (game) => game.gameType === "솔랭"
+  );
+  const freeMatch = matchesData.games.filter(
+    (game) => game.gameType === "자유 5:5 랭크"
+  );
+  useEffect(() => {
+    if (selectedTab === "솔로게임") {
+      setSelectedMatchList(soloMatch);
+    } else if (selectedTab === "자유랭크") {
+      setSelectedMatchList(freeMatch);
+    } else {
+      setSelectedMatchList(matchesData.games);
+    }
+  }, [selectedTab]);
 
   const onClickTab = (tab) => {
     setSelectedTab(tab);
   };
 
   return (
-    <div className={cn("overview_table")}>
-      <div className={cn("tab_row")}>
-        {tabList.map((tab, index) => (
-          <p
-            className={cn(selectedTab === tab && "selected")}
-            onClick={() => onClickTab(tab)}
-            key={index}
-          >
-            {tab}
-          </p>
-        ))}
+    <>
+      <div className={cn("overview_table")}>
+        <div className={cn("tab_row")}>
+          {tabList.map((tab, index) => (
+            <p
+              className={cn(selectedTab === tab && "selected")}
+              onClick={() => onClickTab(tab)}
+              key={index}
+            >
+              {tab}
+            </p>
+          ))}
+        </div>
+        <div className={cn("table_body")}>
+          {matchesData && (
+            <>
+              <div className={cn("table_section")}>
+                <GraphSection summary={matchesData.summary} />
+              </div>
+              <div className={cn("table_section")}>
+                <ChampionList champions={matchesData.champions} />
+              </div>
+              <div className={cn("table_section")}>
+                <PreferredPosition
+                  positions={matchesData.positions}
+                  totalgames={matchesData.games.length}
+                />
+              </div>
+            </>
+          )}
+        </div>
       </div>
-      <div className={cn("table_body")}>
-        {matchesData && (
-          <>
-            <div className={cn("table_section")}>
-              <GraphSection summary={matchesData.summary} />
-            </div>
-            <div className={cn("table_section")}>
-              <ChampionList champions={matchesData.champions} />
-            </div>
-            <div className={cn("table_section")}>
-              <PreferredPosition
-                positions={matchesData.positions}
-                totalgames={matchesData.games.length}
-              />
-            </div>
-          </>
-        )}
-      </div>
-    </div>
+      <MatchList summonerName={summonerName} games={selectedMatchList} />
+    </>
   );
 };
 

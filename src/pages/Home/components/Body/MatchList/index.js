@@ -11,8 +11,7 @@ import itemJson from "../../../../../json/items.json";
 
 const cn = classNames.bind(styles);
 
-const MatchList = ({ matchesData, summonerName }) => {
-  const { games } = matchesData;
+const MatchList = ({ games, summonerName }) => {
   return (
     <div className={cn("match_list")}>
       {games.map((game, index) => (

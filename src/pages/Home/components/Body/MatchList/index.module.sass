@@ -20,6 +20,11 @@
   .match_item_more
     background-color: #e89c95
     border-color: #c8817c
+  .match_rank_info
+    .time_ago
+      border-color: #c8817c
+    .result
+      color: #d0021b
 
 .win
   background-color: #b0ceea
@@ -28,6 +33,11 @@
   .match_item_more
     background-color: #7fb0e1
     border-color:#549dc7
+  .match_rank_info
+    .time_ago
+      border-color: #549dc7
+    .result
+      color: #2c709b
 
 .redo
   background-color: #b6b6b6
@@ -35,7 +45,13 @@
     border-color:#eaeaea
   .match_item_more
     border-color:#999999
-    ackground-color:#a7a7a7
+    background-color:#a7a7a7
+  .match_rank_info
+    .time_ago
+      border-color: #a7a7a7
+    .result
+      color: #000000
+
 
 
 .match_item_container
@@ -59,9 +75,17 @@
   width: 75px
   font-family: AppleSDGothicNeo, sans-serif
   letter-spacing: -0.42px
-
   p
+    color: #555
     margin-bottom: 4px
+  .rank_type
+    font-weight: bold
+  .time_ago
+    padding-bottom: 3px
+    margin-bottom: 5px
+    border-bottom: 1px solid
+  .result
+    font-weight: bold
 
 .champion_info_section
   display: flex
@@ -112,6 +136,34 @@
   color: #555
   font-size: 11px
 
+.kda_info_section
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+.kda
+  font-size: 15px
+  color: #948e8d
+  letter-spacing: -0.58px
+  margin-bottom: 6px
+  .deaths
+    font-weight: bold
+    color:#d0021b 
+  .assists,
+  .kills
+    font-weight: bold
+    color:#555e5e
+.kda_rating
+  font-size: 11px
+  color: #555e5e
+  margin-bottom: 7px
+  font-weight: bold
+  font-family: Helvetica, sans-serif
+  span
+    color: #333333
+
+
+
 .item_gallery
   display: grid
   grid-template-columns: repeat(4, 1fr)
@@ -152,6 +204,13 @@
   flex-direction: column
   align-items: center
   justify-content: center
+  p
+    font-size: 11px
+    margin-bottom: 6px
+    color: #555e5e
+  .kill_rate
+    color:#d0021b
+
 
 .badge_list
   display: flex

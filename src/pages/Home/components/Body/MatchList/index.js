@@ -43,10 +43,12 @@ const MatchItem = ({ game, summonerName }) => {
     >
       <div className={cn("match_item_container")}>
         <div className={cn("match_rank_info")}>
-          <p>{gameType}</p>
+          <p className={cn("rank_type")}>{gameType}</p>
           {/* TO DO  하루전 한달전 .. 등등*/}
-          <p>히루전</p>
-          <p>{needRenew ? "다시하기" : isWin ? "승리" : "패배"}</p>
+          <p className={cn("time_ago")}>하루전</p>
+          <p className={cn("result")}>
+            {needRenew ? "다시하기" : isWin ? "승리" : "패배"}
+          </p>
           <p>{secToMinStringConverter(gameLength)}</p>
         </div>
         <ChampionInfoSection champion={champion} spells={spells} peak={peak} />
@@ -103,32 +105,25 @@ const ChampionInfoSection = ({ champion, spells, peak }) => {
 };
 
 const KDAInfoSection = ({ general }) => {
-  const { kill, death, assist, kdaString } = general;
-  return (
-    <div className={cn("kda_info_section")}>
-      <p>
-        {kill}/ {death}/ {assist}
-      </p>
-      <p>{kdaString}평점</p>
-    </div>
-  );
-};
-
-const OtherDetailSection = ({ level, general }) => {
   const {
-    cs,
-    csPerMin,
-    contributionForKillRate,
+    kill,
+    death,
+    assist,
+    kdaString,
     opScoreBadge,
     largestMultiKillString,
   } = general;
   return (
-    <div className={cn("other_details_section")}>
-      <p>레벨 {level}</p>
-      <p>
-        {cs} ({csPerMin}) CS
+    <div className={cn("kda_info_section")}>
+      <p className={cn("kda")}>
+        <span className={cn("kills")}>{kill}</span> /{" "}
+        <span className={cn("deaths")}>{death}</span> /{" "}
+        <span className={cn("assists")}>{assist}</span>
       </p>
-      <p>킬관여 {contributionForKillRate}</p>
+      <p className={cn("kda_rating")}>
+        <span>{kdaString} </span>
+        평점
+      </p>
       <div className={cn("badge_list")}>
         {largestMultiKillString && (
           <div className={cn("badge", "multikill_badge")}>
@@ -139,6 +134,19 @@ const OtherDetailSection = ({ level, general }) => {
           <div className={cn("badge", "op_badge")}>{opScoreBadge}</div>
         )}
       </div>
+    </div>
+  );
+};
+
+const OtherDetailSection = ({ level, general }) => {
+  const { cs, csPerMin, contributionForKillRate } = general;
+  return (
+    <div className={cn("other_details_section")}>
+      <p>레벨 {level}</p>
+      <p>
+        {cs} ({csPerMin}) CS
+      </p>
+      <p className={cn("kill_rate")}>킬관여 {contributionForKillRate}</p>
     </div>
   );
 };

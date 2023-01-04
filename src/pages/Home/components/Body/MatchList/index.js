@@ -3,8 +3,11 @@ import classNames from "classnames/bind";
 import BlueWardIcon from "../../../../../images/ward_blue.png";
 import RedWardIcon from "../../../../../images/ward_red.png";
 import { secToMinStringConverter } from "../../../../../utils/secToMinStringConverter";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import itemJson from "../../../../../json/items.json";
 
 const cn = classNames.bind(styles);
 
@@ -51,6 +54,7 @@ const MatchItem = ({ game, summonerName }) => {
         <KDAInfoSection general={stats.general} />
         <OtherDetailSection level={champion.level} general={stats.general} />
         <ItemSection
+          gameId={gameId}
           ward={stats.ward}
           items={items}
           isWin={isWin}
@@ -140,23 +144,38 @@ const OtherDetailSection = ({ level, general }) => {
   );
 };
 
-const ItemSection = ({ items, isWin, needRenew, ward }) => {
+const ItemSection = ({ gameId, items, isWin, needRenew, ward }) => {
   let itemList = items;
   while (items.length < 8) {
     itemList.push({});
   }
+  const parseItemStr = (str) => {
+    const str_array = str.split("/");
+    return str_array[str_array.length - 1].split(".")[0];
+  };
+
   return (
     <div className={cn("items_section")}>
       <div className={cn("item_container")}>
         <div className={cn("item_gallery")}>
           {itemList.map((item, index) =>
             item.imageUrl ? (
-              <img
-                key={index}
-                className={cn("item_img")}
-                src={item.imageUrl}
-                alt={"item-icon"}
-              />
+              <>
+                <img
+                  key={index}
+                  className={cn("item_img")}
+                  src={item.imageUrl}
+                  alt={"item-icon"}
+                  id={`${gameId}_${index}`}
+                />
+                <ReactTooltip
+                  anchorId={`${gameId}_${index}`}
+                  place="top"
+                  content={`${
+                    itemJson.data[parseItemStr(item.imageUrl)].plaintext
+                  }`}
+                />
+              </>
             ) : (
               <div
                 className={cn(
@@ -186,7 +205,6 @@ const ItemSection = ({ items, isWin, needRenew, ward }) => {
 
 const TeamMemberList = ({ gameId, summonerName }) => {
   const [teams, setTeams] = useState({});
-  console.log(222, summonerName);
 
   const getTeams = () => {
     axios
@@ -194,7 +212,6 @@ const TeamMemberList = ({ gameId, summonerName }) => {
         `https://codingtest.op.gg/api/summoner/${summonerName}/matchDetail/${gameId}`
       )
       .then((res) => {
-        console.log(444, res);
         setTeams(res.data.teams);
       });
   };
@@ -205,7 +222,7 @@ const TeamMemberList = ({ gameId, summonerName }) => {
 
   return (
     <div className={cn("members_container")}>
-      {teams &&
+      {teams.length &&
         teams.map((team, index) => (
           <div key={index} className={cn("team")}>
             {team.players.map((member, index) => (

@@ -27,7 +27,6 @@ const Body = () => {
         <>
           <Profile summonerData={summonerData} />
           <div className="summoner_board">
-            {/* TO DO rank section */}
             <div className="left_section">
               <LeagueCards summonerData={summonerData} />
               <WinTable summonerWinRate={summonerWinRate} />
@@ -37,15 +36,10 @@ const Body = () => {
                 summonerName={summonerName}
                 matchesData={matchesData}
               />
-              {/* <MatchList
-                summonerName={summonerName}
-                matchesData={matchesData}
-              /> */}
             </div>
           </div>
         </>
       )}
-      {/* </div> */}
     </div>
   );
 };

@@ -1,16 +1,10 @@
 import classNames from "classnames/bind";
 import styles from "./index.module.sass";
-import { useEffect, useState } from "react";
+import ImageIcon from "../../images/x.svg";
 
 const cn = classNames.bind(styles);
 
-const History = ({
-  keywords,
-  // ref,
-  open,
-  handleRemoveKeyword,
-  handleSearch,
-}) => {
+const History = ({ keywords, open, handleRemoveKeyword, handleSearch }) => {
   return (
     !!keywords.length &&
     open && (
@@ -26,7 +20,7 @@ const History = ({
                 className={cn("close_btn")}
                 onClick={() => handleRemoveKeyword(keyword.id)}
               >
-                x
+                <img src={ImageIcon} alt="close icon" />
               </div>
             </li>
           ))}

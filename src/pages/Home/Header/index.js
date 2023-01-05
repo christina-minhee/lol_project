@@ -2,7 +2,7 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateSummoner } from "../../../store";
-import History from "./History";
+import History from "../../../components/History";
 
 const Header = () => {
   const dispatch = useDispatch();

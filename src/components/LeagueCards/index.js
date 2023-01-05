@@ -33,7 +33,6 @@ const LeagueCard = ({ league }) => {
               : league.tierRank.name}
           </p>
           {league.hasResults ? (
-            // {/* TO DO Positon */}
             <>
               <p className={cn("position")}>
                 <span className={cn("bold")}>탑</span> (총 27 게임)

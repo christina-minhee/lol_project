@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateSummoner } from "../../../store";
 import History from "../../../components/History";
+import { useClickOutside } from "../../../hooks";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ const Header = () => {
     }
   };
 
+  const handleOutsideClick = () => {
+    setOpen(false);
+  };
+
   const handleAddKeyWord = (str) => {
     if (str) {
       const newWord = {
@@ -51,30 +56,20 @@ const Header = () => {
     setKeywords(nextWord);
   };
 
-  // useEffect(() => {
-  //   console.log(444, ref);
-  //   const handleClickOutside = (event) => {
-  //     if (!ref.current) {
-  //       setOpen(false);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [ref]);
-
   const handleSearch = (input) => {
     dispatch(updateSummoner(input));
     handleAddKeyWord(input);
     setOpen(false);
   };
 
+  const ref = useClickOutside(handleOutsideClick);
+
   return (
     <div className="header">
-      <div className="search_bar_wrap">
+      <div className="search_bar_wrap" ref={ref}>
         <div className="input-group">
           <input
+            ref={ref}
             type="text"
             onFocus={() => setOpen(true)}
             className="form-control"
@@ -96,6 +91,7 @@ const Header = () => {
         <History
           open={open}
           keywords={keywords}
+          handleOutsideClick={handleOutsideClick}
           handleSearch={handleSearch}
           handleRemoveKeyword={handleRemoveKeyword}
         />

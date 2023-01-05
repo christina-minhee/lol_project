@@ -1,13 +1,13 @@
 import "./index.css";
-import Profile from "./Profile";
-import WinTable from "./WinTable";
-import LeagueCards from "./LeagueCards";
-import MatchOverview from "./MatchOverview";
+import Profile from "../../../components/Profile";
+import WinTable from "../../../components/WinTable";
+import LeagueCards from "../../../components/LeagueCards";
+import MatchOverview from "../../../components/MatchOverview";
 import {
   useGetPlayerResult,
   useGetSummonerWinRate,
   useGetMatches,
-} from "../../../../query";
+} from "../../../query";
 import { useSelector } from "react-redux";
 
 const Body = () => {
@@ -27,7 +27,6 @@ const Body = () => {
         <>
           <Profile summonerData={summonerData} />
           <div className="summoner_board">
-            {/* TO DO rank section */}
             <div className="left_section">
               <LeagueCards summonerData={summonerData} />
               <WinTable summonerWinRate={summonerWinRate} />
@@ -37,15 +36,10 @@ const Body = () => {
                 summonerName={summonerName}
                 matchesData={matchesData}
               />
-              {/* <MatchList
-                summonerName={summonerName}
-                matchesData={matchesData}
-              /> */}
             </div>
           </div>
         </>
       )}
-      {/* </div> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import styles from "./index.module.sass";
-import unrankIcon from "../../../../../images/unranked_league.png";
+import unrankIcon from "../../images/unranked_league.png";
 import classNames from "classnames/bind";
 
 const cn = classNames.bind(styles);
@@ -33,7 +33,6 @@ const LeagueCard = ({ league }) => {
               : league.tierRank.name}
           </p>
           {league.hasResults ? (
-            // {/* TO DO Positon */}
             <>
               <p className={cn("position")}>
                 <span className={cn("bold")}>탑</span> (총 27 게임)

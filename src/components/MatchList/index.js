@@ -1,13 +1,13 @@
 import styles from "./index.module.sass";
 import classNames from "classnames/bind";
-import BlueWardIcon from "../../../../../images/ward_blue.png";
-import RedWardIcon from "../../../../../images/ward_red.png";
-import { secToMinStringConverter } from "../../../../../utils/secToMinStringConverter";
+import BlueWardIcon from "../../images/ward_blue.png";
+import RedWardIcon from "../../images/ward_red.png";
+import { secToMinStringConverter } from "../../utils/secToMinStringConverter";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import itemJson from "../../../../../json/items.json";
+import itemJson from "../../json/items.json";
 
 const cn = classNames.bind(styles);
 

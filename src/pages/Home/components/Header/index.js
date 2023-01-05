@@ -8,6 +8,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [keywords, setKeywords] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const res = localStorage.getItem("keywords") || "[]";
@@ -29,11 +30,18 @@ const Header = () => {
   };
 
   const handleAddKeyWord = (str) => {
-    const newWord = {
-      id: Date.now(),
-      str: str,
-    };
-    setKeywords([newWord, ...keywords]);
+    if (str) {
+      const newWord = {
+        id: Date.now(),
+        str: str.trim(),
+      };
+
+      const nondupKeywords = keywords.filter(
+        (keyword) => keyword.str !== str.trim()
+      );
+      setSearchInput(str);
+      setKeywords([newWord, ...nondupKeywords].slice(0, 10));
+    }
   };
 
   const handleRemoveKeyword = (id) => {
@@ -43,9 +51,23 @@ const Header = () => {
     setKeywords(nextWord);
   };
 
+  // useEffect(() => {
+  //   console.log(444, ref);
+  //   const handleClickOutside = (event) => {
+  //     if (!ref.current) {
+  //       setOpen(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [ref]);
+
   const handleSearch = (input) => {
     dispatch(updateSummoner(input));
     handleAddKeyWord(input);
+    setOpen(false);
   };
 
   return (
@@ -54,6 +76,7 @@ const Header = () => {
         <div className="input-group">
           <input
             type="text"
+            onFocus={() => setOpen(true)}
             className="form-control"
             value={searchInput}
             onChange={onChangeSearch}
@@ -71,6 +94,7 @@ const Header = () => {
           </button>
         </div>
         <History
+          open={open}
           keywords={keywords}
           handleSearch={handleSearch}
           handleRemoveKeyword={handleRemoveKeyword}

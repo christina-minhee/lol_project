@@ -4,9 +4,16 @@ import { useEffect, useState } from "react";
 
 const cn = classNames.bind(styles);
 
-const History = ({ keywords, handleRemoveKeyword, handleSearch }) => {
+const History = ({
+  keywords,
+  // ref,
+  open,
+  handleRemoveKeyword,
+  handleSearch,
+}) => {
   return (
-    !!keywords.length && (
+    !!keywords.length &&
+    open && (
       <div className={cn("history_container")}>
         <div className={cn("history_title")}>
           <p>최근 검색어</p>

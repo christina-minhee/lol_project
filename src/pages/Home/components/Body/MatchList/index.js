@@ -117,8 +117,8 @@ const KDAInfoSection = ({ general }) => {
     <div className={cn("kda_info_section")}>
       <p className={cn("kda")}>
         <span className={cn("kills")}>{kill}</span> /{" "}
-        <span className={cn("deaths")}>{death}</span> /{" "}
-        <span className={cn("assists")}>{assist}</span>
+        <span className={cn("deaths")}>{assist}</span> /{" "}
+        <span className={cn("assists")}>{death}</span>
       </p>
       <p className={cn("kda_rating")}>
         <span>{kdaString} </span>
@@ -167,9 +167,8 @@ const ItemSection = ({ gameId, items, isWin, needRenew, ward }) => {
         <div className={cn("item_gallery")}>
           {itemList.map((item, index) =>
             item.imageUrl ? (
-              <>
+              <div key={index}>
                 <img
-                  key={index}
                   className={cn("item_img")}
                   src={item.imageUrl}
                   alt={"item-icon"}
@@ -182,7 +181,7 @@ const ItemSection = ({ gameId, items, isWin, needRenew, ward }) => {
                     itemJson.data[parseItemStr(item.imageUrl)].plaintext
                   }`}
                 />
-              </>
+              </div>
             ) : (
               <div
                 className={cn(
@@ -195,6 +194,7 @@ const ItemSection = ({ gameId, items, isWin, needRenew, ward }) => {
                       : "lose_empty"
                   }`
                 )}
+                key={index}
               />
             )
           )}

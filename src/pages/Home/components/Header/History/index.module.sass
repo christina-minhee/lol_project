@@ -1,0 +1,43 @@
+.history_container
+  position: absolute
+  display: flex
+  flex-direction: column
+  width: 260px
+  tranform: translateY(50%)
+  background-color: white
+  z-index: 2
+  font-size: 11px
+
+.history_title
+  display: flex
+  justify-content: space-between
+  width: 100%
+  align-items: center
+  height:100%
+  p
+    font-weight: bold
+    padding: 8px 16px
+
+.history_list_container
+  display: flex
+  height: 100%
+  flex-direction: column
+
+.history_items
+  display: flex
+  justify-content: space-between
+  width: 100%
+  align-items: center
+  flex-direction: row
+  &:hover
+    background-color: grey
+  p
+    padding: 16px 16px
+    width: 80%
+  .close_btn
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 20%
+    cursor: pointer
+

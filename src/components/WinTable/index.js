@@ -2,7 +2,7 @@ import styles from "./index.module.sass";
 import { useState } from "react";
 import classNames from "classnames/bind";
 import "./index.css";
-import { getRatingColor, mergeSortByTotalGames } from "../../../../../utils";
+import { getRatingColor, mergeSortByTotalGames } from "../../utils";
 
 const cn = classNames.bind(styles);
 

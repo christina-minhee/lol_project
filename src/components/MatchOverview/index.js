@@ -9,14 +9,14 @@ import {
   getRatingColor,
   getWinRate,
   getPercentageByTotal,
-} from "../../../../../utils";
+} from "../../utils";
 import MatchList from "../MatchList";
-import defaultIcon from "../../../../../images/no_champion.png";
-import JungleIcon from "../../../../../images/pos_jungleIcon.png";
-import MidIcon from "../../../../../images/pos_midIcon.png";
-import SupIcon from "../../../../../images/pos_supIcon.png";
-import TopIcon from "../../../../../images/pos_topIcon.png";
-import ADCIcon from "../../../../../images/pos_adcIcon.png";
+import defaultIcon from "../../images/no_champion.png";
+import JungleIcon from "../../images/pos_jungleIcon.png";
+import MidIcon from "../../images/pos_midIcon.png";
+import SupIcon from "../../images/pos_supIcon.png";
+import TopIcon from "../../images/pos_topIcon.png";
+import ADCIcon from "../../images/pos_adcIcon.png";
 
 const cn = classNames.bind(styles);
 

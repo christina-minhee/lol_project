@@ -1,5 +1,5 @@
 import styles from "./index.module.sass";
-import unrankIcon from "../../../../../images/unranked_league.png";
+import unrankIcon from "../../images/unranked_league.png";
 import classNames from "classnames/bind";
 
 const cn = classNames.bind(styles);

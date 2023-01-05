@@ -1,7 +1,7 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateSummoner } from "../../../../store";
+import { updateSummoner } from "../../../store";
 import History from "./History";
 
 const Header = () => {

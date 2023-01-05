@@ -122,9 +122,9 @@ const GraphSection = ({ summary }) => {
         <p className={cn("kda")}>
           <span className={cn("text-style-bold")}>{kills}</span> /{" "}
           <span className={cn("text-style-red", "text-style-bold")}>
-            {deaths}
+            {assists}
           </span>{" "}
-          / <span className={cn("text-style-bold")}>{assists}</span>
+          / <span className={cn("text-style-bold")}>{deaths}</span>
         </p>
         <p className={cn("rating")}>
           <span className={cn(`${ratingColor}`)}>
@@ -212,7 +212,7 @@ const PreferredPosition = ({ positions, totalgames }) => {
       <p className={cn("preferred_title")}>선호 포지션 (랭크)</p>
       <div className={cn("pos_list")}>
         {positions.map((pos, index) => (
-          <div className={cn("pos_item")}>
+          <div className={cn("pos_item")} key={index}>
             <div className={cn("pos_img_container")}>
               <img
                 src={

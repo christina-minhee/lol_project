@@ -15,7 +15,6 @@ const WinTable = ({ summonerWinRate }) => {
     summonerWinRate.recentWinRate
   );
 
-  // TO DO: sort list by Most games
   return (
     <>
       <div className={cn("win_table")}>
@@ -116,8 +115,8 @@ const ChampionItem = ({ champion }) => {
         <div className={cn("champion_rating")}>
           <p className={cn(`${rating_color}`)}>{rating}:1&nbsp;평점</p>
           <span>
-            {champion.kills}&nbsp;/&nbsp;{champion.deaths}&nbsp;/&nbsp;
-            {champion.assists}
+            {champion.kills}&nbsp;/&nbsp;{champion.assists}&nbsp;/&nbsp;
+            {champion.deaths}
           </span>
         </div>
         <div className={cn("champion_winrate")}>

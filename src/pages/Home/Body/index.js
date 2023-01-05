@@ -23,7 +23,7 @@ const Body = () => {
   return (
     <div className="body_layout">
       {/* TO DO no summoner case */}
-      {!summonerLoading && !winLoading && !matchesLoading && (
+      {!summonerLoading && !winLoading && !matchesLoading ? (
         <>
           <Profile summonerData={summonerData} />
           <div className="summoner_board">
@@ -39,6 +39,10 @@ const Body = () => {
             </div>
           </div>
         </>
+      ) : (
+        <div className="no_search_body">
+          <p className="no_search_message">OP.GG에 소환사를 검색해보세요.</p>
+        </div>
       )}
     </div>
   );

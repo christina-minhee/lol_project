@@ -31,3 +31,22 @@
   border: solid 1px #c0aba8;
   background-color: #d6b5b2;
 }
+.no_search_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 75vh;
+}
+
+.no_search_message {
+  font-size: 30px;
+  animation: blinker 2s linear infinite;
+  font-weight: bold;
+}
+
+@keyframes blinker {
+  60% {
+    opacity: 0;
+  }
+}
